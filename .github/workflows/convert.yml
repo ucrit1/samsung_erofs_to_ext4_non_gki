@@ -8,12 +8,12 @@ on:
       GSI:
         description: 'Samfw Link For AP'
         required: true
-        default: ' AP LINK FROM SAMFW'
+        default: https://drive.usercontent.google.com/download?id=1In8OqkD1uA38-zoXQjFcXaG85bkFZsPZ&export=download&authuser=3&confirm=t&uuid=a2d117a6-525b-4e2a-a2a4-eb0e10ad9fef&at=AN_67v3mk21u3cE2Lkg7T2YU6_u8:1728771181050
       
       Firmware:
         description: 'Firmware version'
         required: true
-        default: 'EG - :A055FXXU2AWK1'
+        default: A055FXXU2BWL6
 
 jobs:
   Build:
@@ -21,7 +21,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Install Dependencies
       run: |
@@ -53,7 +53,7 @@ jobs:
       run: mv ./last/EXT4_RW_AP.zip ./last/${{ github.event.inputs.Firmware }}.zip
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: EXT4_RW_AP
         path: ./last/${{ github.event.inputs.Firmware }}.zip
